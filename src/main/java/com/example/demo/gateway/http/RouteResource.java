@@ -1,7 +1,7 @@
 package com.example.demo.gateway.http;
 
 import com.example.demo.gateway.model.request.RouteRequest;
-import com.example.demo.gateway.model.response.GetDistanceApi;
+import com.example.demo.gateway.model.response.Distance;
 import com.example.demo.service.CalculateDistanceService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,12 +20,12 @@ public class RouteResource {
     private CalculateDistanceService calculateDistanceService;
 
     @GetMapping(value = "/calculate", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<GetDistanceApi> calculate(@RequestBody RouteRequest routeRequest) {
-        GetDistanceApi getDistanceApi = calculateDistanceService.execute(routeRequest);
-        if (getDistanceApi == null) {
+    public ResponseEntity<Distance> calculate(@RequestBody RouteRequest routeRequest) {
+        Distance distance = calculateDistanceService.execute(routeRequest);
+        if (distance == null) {
             return ResponseEntity.notFound().build();
         } else {
-            return ResponseEntity.ok().body(getDistanceApi);
+            return ResponseEntity.ok().body(distance);
         }
     }
 
