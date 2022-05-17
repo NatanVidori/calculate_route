@@ -3,7 +3,7 @@ package com.example.demo.enums;
 public enum ErrorMessageEnum {
 
     ROUTE_NOT_FOUND("NÃO FOI POSSÍVEL IDENTIFICAR AS ROTAS."),
-    API_GOOGLE_ERROR("OCORREU ERRO NA API GOOGLE MAPS, TENTE NOVAMENTE MAIS TARDE.");
+    ROUTE_ROUTE_ERROR("OCORREU UM ERRO, TENTE NOVAMENTE MAIS TARDE.");
 
     private String message;
 
