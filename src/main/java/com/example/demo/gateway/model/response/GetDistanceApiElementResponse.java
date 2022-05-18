@@ -9,10 +9,10 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class DistanceDuration {
+public class GetDistanceApiElementResponse {
 
-    private String text;
+    private GetDistanceApiDistanceResponse distance;
 
-    private Double value;
+    private GetDistanceApiDurationResponse duration;
 
 }

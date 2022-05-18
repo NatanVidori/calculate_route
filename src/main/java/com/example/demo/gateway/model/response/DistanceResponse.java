@@ -11,10 +11,13 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class DistanceRows {
-    
-    private List<DistanceElement> elements;
+public class DistanceResponse {
 
-    private Double totalDistanceRow;
+    private List<String> destinationAddresses;
+
+    private List<String> originAddresses;
     
+    private List<DistanceRowsResponse> rows;
+
+    private Double totalDistance;
 }

@@ -1,7 +1,5 @@
 package com.example.demo.gateway.model.response;
 
-import java.util.List;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,8 +9,10 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class GetDistanceApiRows {
-    
-    private List<GetDistanceApiElement> elements;
-    
+public class DistanceDistanceResponse {
+
+    private String text;
+
+    private Double value;    
+
 }

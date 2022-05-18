@@ -11,12 +11,12 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class GetDistanceApi {
+public class GetDistanceApiResponse {
 
     private List<String> destination_addresses;
 
     private List<String>  origin_addresses;
     
-    private List<GetDistanceApiRows> rows;
+    private List<GetDistanceApiRowsResponse> rows;
 
 }

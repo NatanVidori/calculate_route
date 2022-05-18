@@ -3,37 +3,37 @@ package com.example.demo.gateway.model.factory;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.demo.gateway.model.response.Distance;
-import com.example.demo.gateway.model.response.DistanceDistance;
-import com.example.demo.gateway.model.response.DistanceDuration;
-import com.example.demo.gateway.model.response.DistanceElement;
-import com.example.demo.gateway.model.response.DistanceRows;
-import com.example.demo.gateway.model.response.GetDistanceApi;
+import com.example.demo.gateway.model.response.DistanceResponse;
+import com.example.demo.gateway.model.response.DistanceDistanceResponse;
+import com.example.demo.gateway.model.response.DistanceDurationResponse;
+import com.example.demo.gateway.model.response.DistanceElementResponse;
+import com.example.demo.gateway.model.response.DistanceRowsResponse;
+import com.example.demo.gateway.model.response.GetDistanceApiResponse;
 
 public class DistanceFactory {
 
     private DistanceFactory() {
     }
 
-    public static Distance buildDistance(GetDistanceApi getDistanceApi) {
-        List<DistanceRows> rowsList;
-        rowsList = new ArrayList<DistanceRows>();
+    public static DistanceResponse buildDistance(GetDistanceApiResponse getDistanceApi) {
+        List<DistanceRowsResponse> rowsList;
+        rowsList = new ArrayList<DistanceRowsResponse>();
 
         getDistanceApi.getRows().forEach(distance -> {
-            DistanceRows tempDistanceRows;
-            List<DistanceElement> tempDistanceElementList;
+            DistanceRowsResponse tempDistanceRows;
+            List<DistanceElementResponse> tempDistanceElementList;
             
-            tempDistanceRows = new DistanceRows();
-            tempDistanceElementList = new ArrayList<DistanceElement>();
+            tempDistanceRows = new DistanceRowsResponse();
+            tempDistanceElementList = new ArrayList<DistanceElementResponse>();
 
             distance.getElements().forEach(elements -> {
-                DistanceElement tempDistanceElement;
-                DistanceDistance tempDistanceDistance;
-                DistanceDuration tempDistanceDuration; 
+                DistanceElementResponse tempDistanceElement;
+                DistanceDistanceResponse tempDistanceDistance;
+                DistanceDurationResponse tempDistanceDuration; 
 
-                tempDistanceElement = new DistanceElement();
-                tempDistanceDistance = new DistanceDistance();
-                tempDistanceDuration = new DistanceDuration();
+                tempDistanceElement = new DistanceElementResponse();
+                tempDistanceDistance = new DistanceDistanceResponse();
+                tempDistanceDuration = new DistanceDurationResponse();
 
                 tempDistanceDistance.setText(elements.getDistance().getText());
                 tempDistanceDistance.setValue(Double.parseDouble(elements.getDistance().getValue()));
@@ -52,7 +52,7 @@ public class DistanceFactory {
             rowsList.add(tempDistanceRows);
         });
 
-        return Distance.builder()
+        return DistanceResponse.builder()
                 .destinationAddresses(getDistanceApi.getDestination_addresses())
                 .originAddresses(getDistanceApi.getOrigin_addresses())
                 .rows(rowsList)

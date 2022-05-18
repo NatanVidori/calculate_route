@@ -6,9 +6,9 @@ import com.example.demo.exceptions.ApiGoogleErrorException;
 import com.example.demo.gateway.feign.GoogleApi;
 import com.example.demo.gateway.model.factory.DistanceFactory;
 import com.example.demo.gateway.model.request.RouteRequest;
-import com.example.demo.gateway.model.response.Distance;
-import com.example.demo.gateway.model.response.DistanceRows;
-import com.example.demo.gateway.model.response.GetDistanceApi;
+import com.example.demo.gateway.model.response.DistanceResponse;
+import com.example.demo.gateway.model.response.DistanceRowsResponse;
+import com.example.demo.gateway.model.response.GetDistanceApiResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,11 +23,11 @@ public class CalculateDistanceService {
 
     private Double totalDistanceRow;
 
-    public Distance execute(RouteRequest routeRequest) {
+    public DistanceResponse execute(RouteRequest routeRequest) {
         try {
-            GetDistanceApi getDistanceApi = googleApi.getDistance(routeRequest);
+            GetDistanceApiResponse getDistanceApi = googleApi.getDistance(routeRequest);
 
-            Distance distance = DistanceFactory.buildDistance(getDistanceApi);
+            DistanceResponse distance = DistanceFactory.buildDistance(getDistanceApi);
 
             distance.setTotalDistance(sumDistance(distance.getRows()));
 
@@ -37,7 +37,7 @@ public class CalculateDistanceService {
         }
     }
 
-    private Double sumDistance(List<DistanceRows> rowsList) {
+    private Double sumDistance(List<DistanceRowsResponse> rowsList) {
         totalDistance = 0.00;
 
         rowsList.forEach(row -> {

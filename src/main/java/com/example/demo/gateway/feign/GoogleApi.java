@@ -2,7 +2,7 @@ package com.example.demo.gateway.feign;
 
 import com.example.demo.config.feign.GoogleApiConfig;
 import com.example.demo.gateway.model.request.RouteRequest;
-import com.example.demo.gateway.model.response.GetDistanceApi;
+import com.example.demo.gateway.model.response.GetDistanceApiResponse;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.MediaType;
@@ -24,7 +24,7 @@ public interface GoogleApi {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    GetDistanceApi getDistance(@SpringQueryMap RouteRequest routeRequest);
+    GetDistanceApiResponse getDistance(@SpringQueryMap RouteRequest routeRequest);
 
 }
 

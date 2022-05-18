@@ -9,10 +9,10 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class GetDistanceApiDuration {
+public class GetDistanceApiDistanceResponse {
 
     private String text;
 
-    private String value;
+    private String value;    
 
 }

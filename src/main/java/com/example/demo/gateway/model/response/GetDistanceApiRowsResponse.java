@@ -11,13 +11,8 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Distance {
-
-    private List<String> destinationAddresses;
-
-    private List<String> originAddresses;
+public class GetDistanceApiRowsResponse {
     
-    private List<DistanceRows> rows;
-
-    private Double totalDistance;
+    private List<GetDistanceApiElementResponse> elements;
+    
 }

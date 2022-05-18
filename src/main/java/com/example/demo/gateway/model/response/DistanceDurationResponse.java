@@ -9,10 +9,10 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class DistanceDistance {
+public class DistanceDurationResponse {
 
     private String text;
 
-    private Double value;    
+    private Double value;
 
 }
